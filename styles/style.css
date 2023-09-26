@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+h1,
+label,
+textarea,
+body {
+  margin: 0;
+  font: inherit;
+}
