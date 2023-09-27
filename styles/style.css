@@ -11,3 +11,15 @@ body {
 .off {
   display: none;
 }
+
+.main-container {
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.screen {
+  background-color: aquamarine;
+  border-radius: 10px;
+}
