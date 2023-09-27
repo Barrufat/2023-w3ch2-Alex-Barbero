@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/styles.css">
   <script type="module" src="./js/index.js"></script>
   <title>Greater or smaller</title>
 </head>
@@ -14,13 +14,39 @@
 <body>
   <main class="main-container">
     <section class="guess-box">
+
       <div class="screen first-screen">
         <button class="start-game">Start Game</button>
       </div>
+
       <div class="screen second-screen off">
         <h1>Is the card greater or smaller?</h1>
-        <img src="" alt="firstCard">
-        <img src="" alt="secondCard">
+        <section class="cards-box">
+
+          <div class="card">
+            <div class="top-values">
+              <span class="user-card-value"></span>
+              <span class="user-card-suit"></span>
+            </div>
+
+            <div class="bottom-values">
+              <span class="user-card-value"></span>
+              <span class="user-card-suit"></span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="top-values">
+              <span class="game-card-value"></span>
+              <span class="game-card-suit"></span>
+            </div>
+
+            <div class="bottom-values">
+              <span class="game-card-value"></span>
+              <span class="game-card-suit"></span>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
   </main>
