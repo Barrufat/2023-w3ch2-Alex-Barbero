@@ -23,6 +23,9 @@ const firstScreenElement = document.querySelector(".first-screen");
 const secondScreenElement = document.querySelector(".second-screen");
 
 const drawButtonElement = document.querySelector(".draw");
+const greaterButtonElement = document.querySelector(".greater");
+const smallerButtonElement = document.querySelector(".smaller");
+const overviewElement = document.querySelector(".overview")
 
 const getDeck = () => {
   const deck = [];
@@ -36,11 +39,16 @@ const getDeck = () => {
   return deck;
 };
 
-const revealGameCard = (gameCard) => {
-  console.log(gameCard);
+const revealGameCard = (gameCard, isGreater) => {
+  console.log("Game: " + gameCard.value);
+  console.log("Usercard: " + userCard.value)
+  console.log(isGreater);
+
   const gameCardElement = document.querySelector(".game-card");
   const gameCardValuesElement = document.querySelectorAll(".game-card-value");
   const gameCardSuitsElement = document.querySelectorAll(".game-card-suit");
+
+  const resultElement = document.querySelector(".result")
 
   gameCardElement.classList.add(gameCard.suit+"-up-card");
   gameCardElement.classList.remove("down-card");
@@ -49,6 +57,17 @@ const revealGameCard = (gameCard) => {
 
   gameCardSuitsElement[0].textContent = gameCard.suit;
   gameCardSuitsElement[1].textContent = gameCard.suit;
+
+  if(gameCard.value > userCard.value && isGreater || gameCard.value < userCard.value && !isGreater){
+    overviewElement.classList.toggle("off");
+    resultElement.classList.add("winner");
+  } else if (userCard.value === gameCard.value){
+    overviewElement.classList.toggle("off");
+    resultElement.classList.add("tie");
+  } else {
+    overviewElement.classList.toggle("off");
+    resultElement.classList.add("loser");
+  }
 };
 
 const getRandomCards = () => {
@@ -59,8 +78,10 @@ const getRandomCards = () => {
   gameCard = getDeck()[gameCardPosition];
 
   const userCardElement = document.querySelector(".user-card");
+  const gameCardElement = document.querySelector(".game-card");
 
-  userCardElement.classList.add(userCard.suit+"-up-card");
+  gameCardElement.className = "game-card down-card"
+  userCardElement.className= "user-card " + userCard.suit + "-up-card";
   const userCardValuesElement = document.querySelectorAll(".user-card-value");
   const userCardSuitsElement = document.querySelectorAll(".user-card-suit");
 
@@ -78,9 +99,26 @@ startButtonElement.addEventListener("click", (event) => {
   secondScreenElement.classList.toggle("off");
 });
 
-getDeck();
-
 drawButtonElement.addEventListener("click", (event) => {
   event.stopPropagation();
-  revealGameCard(gameCard);
+  getRandomCards();
 });
+
+greaterButtonElement.addEventListener("click", (event)=>{
+  event.stopPropagation();
+  revealGameCard(gameCard, true);
+})
+
+smallerButtonElement.addEventListener("click", (event)=>{
+  event.stopPropagation();
+  revealGameCard(gameCard, false);
+})
+
+overviewElement.addEventListener("click", (event) =>{
+  event.stopPropagation();
+  firstScreenElement.classList.toggle("off");
+  secondScreenElement.classList.toggle("off");
+  overviewElement.classList.toggle("off");
+})
+
+getDeck();

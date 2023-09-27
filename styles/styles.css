@@ -22,15 +22,21 @@ ul {
 .main-container {
   width: 100%;
   height: 100vh;
-  padding: 50px;
+  padding: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(https://i.pinimg.com/originals/9a/bc/59/9abc59cab8bd6add3ec91706a9d57530.jpg);
+  background-size:contain;
 }
 
 .guess-box {
   height: 100%;
   width: 100%;
+  background-image: url(../images/tapete.png);
+  background-size: cover;
+  border-radius: 50px;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.40);
 }
 
 .first-screen {
@@ -39,7 +45,6 @@ ul {
   justify-content: center;
   height: 100%;
   width: 100%;
-  background-color: rgba(127, 255, 212, 0.171);
   border-radius: 10px;
 }
 
@@ -47,7 +52,6 @@ ul {
   display: flex;
   height: 100%;
   width: 100%;
-  background-color: rgba(127, 255, 212, 0.158);
   border-radius: 10px;
   flex-direction: column;
   align-items: center;
@@ -66,8 +70,9 @@ ul {
   height: 50vh;
   background-image: url(../images/background.png);
   background-size: cover;
-  border-radius: 20px;
+  border-radius: 30px;
   padding: 10px;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.40);
 }
 
 .♦-up-card {
@@ -80,9 +85,10 @@ ul {
   background-image: url(../images/upDiamond.png);
   background-size: cover;
   border: solid 2px black;
-  border-radius: 20px;
+  border-radius: 30px;
   padding: 10px;
   font-size: 5vh;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.40);
 }
 
 .♥-up-card {
@@ -95,9 +101,10 @@ ul {
   background-image: url(../images/upHeart.png);
   background-size: cover;
   border: solid 2px black;
-  border-radius: 20px;
+  border-radius: 30px;
   padding: 10px;
   font-size: 5vh;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.40);
 }
 
 .♣-up-card {
@@ -109,9 +116,10 @@ ul {
   background-image: url(../images/upClover.png);
   background-size: cover;
   border: solid 2px black;
-  border-radius: 20px;
+  border-radius: 30px;
   padding: 10px;
   font-size: 5vh;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.40);
 }
 
 .♠-up-card {
@@ -123,9 +131,10 @@ ul {
   background-image: url(../images/upSpade.png);
   background-size: cover;
   border: solid 2px black;
-  border-radius: 20px;
+  border-radius: 30px;
   padding: 10px;
   font-size: 5vh;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.40);
 }
 
 
@@ -143,4 +152,38 @@ ul {
 
 .button {
   margin: 0 20px;
+}
+
+.overview{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  background-color: #0000004f;
+}
+
+.winner{
+  width: 50vh;
+  height: 50vh;
+  background-image: url(../images/win.png);
+  background-size: cover;
+
+}
+
+.loser{
+  width: 50vh;
+  height: 50vh;
+  background-image: url(../images/lose.png);
+  background-size: cover;
+}
+
+.tie{
+  width: 50vh;
+  height: 50vh;
+  background-image: url(../images/tie.png);
+  background-size: cover;
 }
