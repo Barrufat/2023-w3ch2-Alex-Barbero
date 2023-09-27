@@ -15,9 +15,14 @@ const cardNumbers = [
 ];
 const suits = ["♠", "♣", "♦", "♥"];
 
+let userCard;
+let gameCard;
+
 const startButtonElement = document.querySelector(".start-game");
 const firstScreenElement = document.querySelector(".first-screen");
 const secondScreenElement = document.querySelector(".second-screen");
+
+const drawButtonElement = document.querySelector(".draw");
 
 const getDeck = () => {
   const deck = [];
@@ -31,34 +36,50 @@ const getDeck = () => {
   return deck;
 };
 
+const revealGameCard = (gameCard) => {
+  console.log(gameCard);
+  const gameCardElement = document.querySelector(".game-card");
+  const gameCardValuesElement = document.querySelectorAll(".game-card-value");
+  const gameCardSuitsElement = document.querySelectorAll(".game-card-suit");
+
+  gameCardElement.classList.add("up-card");
+  gameCardElement.classList.remove("down-card");
+  gameCardValuesElement[0].textContent = gameCard.cardNumber;
+  gameCardValuesElement[1].textContent = gameCard.cardNumber;
+
+  gameCardSuitsElement[0].textContent = gameCard.suit;
+  gameCardSuitsElement[1].textContent = gameCard.suit;
+};
+
 const getRandomCards = () => {
   const userCardPosition = Math.floor(Math.random() * getDeck().length);
   const gameCardPosition = Math.floor(Math.random() * getDeck().length);
 
-  const userCard = getDeck()[userCardPosition];
-  const gameCard = getDeck()[gameCardPosition];
+  userCard = getDeck()[userCardPosition];
+  gameCard = getDeck()[gameCardPosition];
 
-  const userCardValues = document.querySelectorAll(".user-card-value");
-  userCardValues[0].textContent = userCard.cardNumber;
-  userCardValues[1].textContent = userCard.cardNumber;
+  // const userCardElement = document.querySelector(".user-card");
 
-  const userCardSuits = document.querySelectorAll(".user-card-suit");
-  userCardSuits[0].textContent = userCard.suit;
-  userCardSuits[1].textContent = userCard.suit;
+  const userCardValuesElement = document.querySelectorAll(".user-card-value");
+  const userCardSuitsElement = document.querySelectorAll(".user-card-suit");
 
-  const gameCardValues = document.querySelectorAll(".game-card-value");
-  gameCardValues[0].textContent = gameCard.cardNumber;
-  gameCardValues[1].textContent = gameCard.cardNumber;
+  userCardValuesElement[0].textContent = userCard.cardNumber;
+  userCardValuesElement[1].textContent = userCard.cardNumber;
 
-  const gameCardSuits = document.querySelectorAll(".game-card-suit");
-  gameCardSuits[0].textContent = gameCard.suit;
-  gameCardSuits[1].textContent = gameCard.suit;
+  userCardSuitsElement[0].textContent = userCard.suit;
+  userCardSuitsElement[1].textContent = userCard.suit;
 };
 
-startButtonElement.addEventListener("click", () => {
+startButtonElement.addEventListener("click", (event) => {
+  event.stopPropagation();
   getRandomCards();
   firstScreenElement.classList.toggle("off");
   secondScreenElement.classList.toggle("off");
 });
 
 getDeck();
+
+drawButtonElement.addEventListener("click", (event) => {
+  event.stopPropagation();
+  revealGameCard(gameCard);
+});
