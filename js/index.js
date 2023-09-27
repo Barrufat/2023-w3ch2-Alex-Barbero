@@ -42,7 +42,7 @@ const revealGameCard = (gameCard) => {
   const gameCardValuesElement = document.querySelectorAll(".game-card-value");
   const gameCardSuitsElement = document.querySelectorAll(".game-card-suit");
 
-  gameCardElement.classList.add("up-card");
+  gameCardElement.classList.add(gameCard.suit+"-up-card");
   gameCardElement.classList.remove("down-card");
   gameCardValuesElement[0].textContent = gameCard.cardNumber;
   gameCardValuesElement[1].textContent = gameCard.cardNumber;
@@ -58,8 +58,9 @@ const getRandomCards = () => {
   userCard = getDeck()[userCardPosition];
   gameCard = getDeck()[gameCardPosition];
 
-  // const userCardElement = document.querySelector(".user-card");
+  const userCardElement = document.querySelector(".user-card");
 
+  userCardElement.classList.add(userCard.suit+"-up-card");
   const userCardValuesElement = document.querySelectorAll(".user-card-value");
   const userCardSuitsElement = document.querySelectorAll(".user-card-suit");
 

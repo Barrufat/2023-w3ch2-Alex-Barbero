@@ -70,17 +70,64 @@ ul {
   padding: 10px;
 }
 
-.up-card {
+.♦-up-card {
+  color:rgb(198, 0, 0);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 29.4vh;
   height: 50vh;
-  background-color: whitesmoke;
+  background-image: url(../images/upDiamond.png);
+  background-size: cover;
   border: solid 2px black;
   border-radius: 20px;
   padding: 10px;
+  font-size: 5vh;
 }
+
+.♥-up-card {
+  color:rgb(198, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 29.4vh;
+  height: 50vh;
+  background-image: url(../images/upHeart.png);
+  background-size: cover;
+  border: solid 2px black;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 5vh;
+}
+
+.♣-up-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 29.4vh;
+  height: 50vh;
+  background-image: url(../images/upClover.png);
+  background-size: cover;
+  border: solid 2px black;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 5vh;
+}
+
+.♠-up-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 29.4vh;
+  height: 50vh;
+  background-image: url(../images/upSpade.png);
+  background-size: cover;
+  border: solid 2px black;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 5vh;
+}
+
 
 .top-values {
   width: 100%;
