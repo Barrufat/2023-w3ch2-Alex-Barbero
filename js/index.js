@@ -19,9 +19,15 @@ const suits = ["♠", "♣", "♦", "♥"];
 let userCard;
 let gameCard;
 
+let toggleEnd = false;
+
 const startButtonElement = document.querySelector(".start-game");
 const firstScreenElement = document.querySelector(".first-screen");
 const secondScreenElement = document.querySelector(".second-screen");
+
+const flipCardElement = document.querySelector(".flip-card");
+const flipCardInnerElement = document.querySelector(".flip-card-inner");
+
 
 const guessButtonsElement = document.querySelector(".guess-buttons");
 const mainTitleElement = document.querySelector(".main-title");
@@ -59,8 +65,10 @@ const getRandomCards = () => {
   gameCard = getDeck()[gameCardPosition];
 
   const userCardElement = document.querySelector(".user-card");
+  const backCardElement = document.querySelector(".back");
 
-  userCardElement.className = "user-card " + userCard.suit + "-up-card";
+  backCardElement.className = "back "+ gameCard.suit + "-game-card"
+  userCardElement.className = "user-card " + userCard.suit + "-user-card";
   const userCardValuesElement = document.querySelectorAll(".user-card-value");
   const userCardSuitsElement = document.querySelectorAll(".user-card-suit");
 
@@ -108,6 +116,9 @@ const showResult = (isGuessCorrect) => {
 
 startButtonElement.addEventListener("click", (event) => {
   event.stopPropagation();
+
+  toggleEnd = false;
+
   getRandomCards();
   firstScreenElement.classList.toggle("off");
   secondScreenElement.classList.toggle("off");
@@ -121,9 +132,10 @@ drawButtonElement.addEventListener("click", (event) => {
 });
 
 greaterButtonElement.addEventListener("click", (event) => {
-  console.log(userCard, gameCard);
+
   event.stopPropagation();
-  // revealGameCard();
+
+  flipCardInnerElement.classList.add("flip-card-inner-on");
 
   if (userCard.value === gameCard.value) {
     setTimeout(function () {
@@ -139,12 +151,24 @@ greaterButtonElement.addEventListener("click", (event) => {
       showResult(false);
     }
   }
+
+  setTimeout(function () {
+    if(!toggleEnd){
+      flipCardInnerElement.classList.remove("flip-card-inner-on");
+      firstScreenElement.classList.toggle("off");
+      secondScreenElement.classList.toggle("off");
+      overviewElement.classList.toggle("off");
+      guessButtonsElement.classList.toggle("off");
+      mainTitleElement.classList.toggle("off");
+    }
+  }, 6000);
 });
 
 smallerButtonElement.addEventListener("click", (event) => {
-  console.log(userCard, gameCard);
+
   event.stopPropagation();
-  // revealGameCard();
+
+  flipCardInnerElement.classList.add("flip-card-inner-on");
 
   if (userCard.value === gameCard.value) {
     setTimeout(function () {
@@ -160,10 +184,25 @@ smallerButtonElement.addEventListener("click", (event) => {
       showResult(true);
     }
   }
+
+  setTimeout(function () {
+    if(!toggleEnd){
+      flipCardInnerElement.classList.remove("flip-card-inner-on");
+      firstScreenElement.classList.toggle("off");
+      secondScreenElement.classList.toggle("off");
+      overviewElement.classList.toggle("off");
+      guessButtonsElement.classList.toggle("off");
+      mainTitleElement.classList.toggle("off");
+    }
+  }, 6000);
 });
 
 overviewElement.addEventListener("click", (event) => {
   event.stopPropagation();
+
+  toggleEnd = true;
+
+  flipCardInnerElement.classList.remove("flip-card-inner-on");
   firstScreenElement.classList.toggle("off");
   secondScreenElement.classList.toggle("off");
   overviewElement.classList.toggle("off");
