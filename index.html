@@ -7,21 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
   <script type="module" src="./js/index.js"></script>
   <title>Greater or smaller</title>
 </head>
 
 <body>
   <main class="main-container">
-    <section class="guess-box">
+    <h1 class="main-title off">Is the card greater or smaller?</h1>
+    <div class="guess-box">
 
       <div class="screen first-screen">
-        <button class="start-game">Start Game</button>
+        <button class="button start-game">Start Game</button>
       </div>
 
       <div class="screen second-screen off">
-        <h1>Is the card greater or smaller?</h1>
-        <section class="cards-box">
+        <div class="cards-box">
           <div class="user-card">
             <div class="top-values">
               <span class="user-card-value"></span>
@@ -44,17 +47,17 @@
               <span class="game-card-suit"></span>
             </div>
           </div>
-        </section>
-        <ul>
-          <li><button class="button greater">Greater</button></li>
-          <li><button class="button draw">Draw another</button></li>
-          <li><button class="button smaller">Smaller</button></li>
-        </ul>
+        </div>
       </div>
-    </section>
-    <section class="overview off">
+    </div>
+    <div class="overview off">
       <div class="result"></div>
-    </section>
+    </div>
+    <ul class="guess-buttons off">
+      <li><button class="button greater">Greater</button></li>
+      <li><button class="button draw">Draw another</button></li>
+      <li><button class="button smaller">Smaller</button></li>
+    </ul>
   </main>
 
 
