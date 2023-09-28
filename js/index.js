@@ -44,17 +44,11 @@ const getDeck = () => {
 };
 
 const revealGameCard = () => {
-  const gameCardElement = document.querySelector(".game-card");
-  const gameCardValuesElement = document.querySelectorAll(".game-card-value");
-  const gameCardSuitsElement = document.querySelectorAll(".game-card-suit");
+  const flipCardElement = document.querySelector(".flip-card");
+  const flipCardInnerElement = document.querySelector(".flip-card-inner");
 
-  gameCardElement.classList.add(gameCard.suit + "-up-card");
-  gameCardElement.classList.remove("down-card");
-  gameCardValuesElement[0].textContent = gameCard.cardNumber;
-  gameCardValuesElement[1].textContent = gameCard.cardNumber;
-
-  gameCardSuitsElement[0].textContent = gameCard.suit;
-  gameCardSuitsElement[1].textContent = gameCard.suit;
+  flipCardElement.classList.toggle("flip-card-on");
+  flipCardInnerElement.classList.toggle("flip-card-inner");
 };
 
 const getRandomCards = () => {
@@ -65,9 +59,7 @@ const getRandomCards = () => {
   gameCard = getDeck()[gameCardPosition];
 
   const userCardElement = document.querySelector(".user-card");
-  const gameCardElement = document.querySelector(".game-card");
 
-  gameCardElement.className = "game-card down-card";
   userCardElement.className = "user-card " + userCard.suit + "-up-card";
   const userCardValuesElement = document.querySelectorAll(".user-card-value");
   const userCardSuitsElement = document.querySelectorAll(".user-card-suit");
@@ -77,6 +69,15 @@ const getRandomCards = () => {
 
   userCardSuitsElement[0].textContent = userCard.suit;
   userCardSuitsElement[1].textContent = userCard.suit;
+
+  const gameCardValuesElement = document.querySelectorAll(".game-card-value");
+  const gameCardSuitsElement = document.querySelectorAll(".game-card-suit");
+
+  gameCardValuesElement[0].textContent = gameCard.cardNumber;
+  gameCardValuesElement[1].textContent = gameCard.cardNumber;
+
+  gameCardSuitsElement[0].textContent = gameCard.suit;
+  gameCardSuitsElement[1].textContent = gameCard.suit;
 };
 
 const compareCards = () => {
@@ -122,7 +123,7 @@ drawButtonElement.addEventListener("click", (event) => {
 greaterButtonElement.addEventListener("click", (event) => {
   console.log(userCard, gameCard);
   event.stopPropagation();
-  revealGameCard();
+  // revealGameCard();
 
   if (userCard.value === gameCard.value) {
     setTimeout(function () {
@@ -143,7 +144,7 @@ greaterButtonElement.addEventListener("click", (event) => {
 smallerButtonElement.addEventListener("click", (event) => {
   console.log(userCard, gameCard);
   event.stopPropagation();
-  revealGameCard();
+  // revealGameCard();
 
   if (userCard.value === gameCard.value) {
     setTimeout(function () {
