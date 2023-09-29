@@ -18,10 +18,13 @@ html {
 }
 
 ul {
-  width: 100%;
-  display: flex;
   list-style-type: none;
   padding-inline-start: 0;
+}
+
+ul {
+  width: 100%;
+  display: flex;
   justify-content: center;
 }
 
@@ -48,7 +51,7 @@ ul {
   font-size: 4vw;
 }
 
-.secondary-button{
+.secondary-button {
   font-size: 2vw;
 }
 
@@ -352,7 +355,7 @@ ul {
   transition: all 550ms cubic-bezier(0.1, 0.22, 0.8, 1.13);
   transform-style: preserve-3d;
 }
-.flip-card-front{
+.flip-card-front {
   position: absolute;
   border-radius: 2.5vh;
   width: 100%;
@@ -360,7 +363,6 @@ ul {
   backface-visibility: hidden;
   background-image: url(../images/background.webp);
   background-size: cover;
-
 }
 .flip-card-back {
   position: absolute;
@@ -372,6 +374,6 @@ ul {
   transform: rotateY(180deg);
 }
 
-.flip-card-inner-on{
+.flip-card-inner-on {
   transform: rotateY(-180deg);
 }

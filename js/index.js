@@ -18,7 +18,6 @@ const suits = ["♠", "♣", "♦", "♥"];
 
 let userCard;
 let gameCard;
-
 let toggleEnd = false;
 
 const startButtonElement = document.querySelector(".start-game");
@@ -27,7 +26,6 @@ const secondScreenElement = document.querySelector(".second-screen");
 
 const flipCardElement = document.querySelector(".flip-card");
 const flipCardInnerElement = document.querySelector(".flip-card-inner");
-
 
 const guessButtonsElement = document.querySelector(".guess-buttons");
 const mainTitleElement = document.querySelector(".main-title");
@@ -69,7 +67,7 @@ const getRandomCards = () => {
   const userCardElement = document.querySelector(".user-card");
   const backCardElement = document.querySelector(".back");
 
-  backCardElement.className = "back "+ gameCard.suit + "-game-card"
+  backCardElement.className = "back " + gameCard.suit + "-game-card";
   userCardElement.className = "user-card " + userCard.suit + "-user-card";
   const userCardValuesElement = document.querySelectorAll(".user-card-value");
   const userCardSuitsElement = document.querySelectorAll(".user-card-suit");
@@ -139,7 +137,6 @@ drawButtonElement.addEventListener("click", (event) => {
 });
 
 greaterButtonElement.addEventListener("click", (event) => {
-
   event.stopPropagation();
 
   secondaryButtonElements[0].disabled = true;
@@ -164,7 +161,7 @@ greaterButtonElement.addEventListener("click", (event) => {
   }
 
   setTimeout(function () {
-    if(!toggleEnd){
+    if (!toggleEnd) {
       flipCardInnerElement.classList.remove("flip-card-inner-on");
       firstScreenElement.classList.toggle("off");
       secondScreenElement.classList.toggle("off");
@@ -178,7 +175,6 @@ greaterButtonElement.addEventListener("click", (event) => {
 });
 
 smallerButtonElement.addEventListener("click", (event) => {
-
   event.stopPropagation();
 
   secondaryButtonElements[0].disabled = true;
@@ -203,7 +199,7 @@ smallerButtonElement.addEventListener("click", (event) => {
   }
 
   setTimeout(function () {
-    if(!toggleEnd){
+    if (!toggleEnd) {
       flipCardInnerElement.classList.remove("flip-card-inner-on");
       firstScreenElement.classList.toggle("off");
       secondScreenElement.classList.toggle("off");
@@ -229,7 +225,4 @@ overviewElement.addEventListener("click", (event) => {
   mainTitleElement.classList.toggle("off");
 
   startButtonElement.disabled = false;
-
 });
-
-getDeck();
