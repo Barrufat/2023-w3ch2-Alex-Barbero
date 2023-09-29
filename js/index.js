@@ -37,6 +37,8 @@ const smallerButtonElement = document.querySelector(".smaller");
 const overviewElement = document.querySelector(".overview");
 const resultElement = document.querySelector(".result");
 
+const secondaryButtonElements = document.querySelectorAll(".secondary-button");
+
 const getDeck = () => {
   const deck = [];
 
@@ -117,6 +119,11 @@ const showResult = (isGuessCorrect) => {
 startButtonElement.addEventListener("click", (event) => {
   event.stopPropagation();
 
+  startButtonElement.disabled = true;
+  secondaryButtonElements[0].disabled = false;
+  secondaryButtonElements[1].disabled = false;
+  secondaryButtonElements[2].disabled = false;
+
   toggleEnd = false;
 
   getRandomCards();
@@ -135,6 +142,10 @@ greaterButtonElement.addEventListener("click", (event) => {
 
   event.stopPropagation();
 
+  secondaryButtonElements[0].disabled = true;
+  secondaryButtonElements[1].disabled = true;
+  secondaryButtonElements[2].disabled = true;
+
   flipCardInnerElement.classList.add("flip-card-inner-on");
 
   if (userCard.value === gameCard.value) {
@@ -160,6 +171,8 @@ greaterButtonElement.addEventListener("click", (event) => {
       overviewElement.classList.toggle("off");
       guessButtonsElement.classList.toggle("off");
       mainTitleElement.classList.toggle("off");
+
+      startButtonElement.disabled = false;
     }
   }, 6000);
 });
@@ -168,6 +181,10 @@ smallerButtonElement.addEventListener("click", (event) => {
 
   event.stopPropagation();
 
+  secondaryButtonElements[0].disabled = true;
+  secondaryButtonElements[1].disabled = true;
+  secondaryButtonElements[2].disabled = true;
+
   flipCardInnerElement.classList.add("flip-card-inner-on");
 
   if (userCard.value === gameCard.value) {
@@ -193,6 +210,8 @@ smallerButtonElement.addEventListener("click", (event) => {
       overviewElement.classList.toggle("off");
       guessButtonsElement.classList.toggle("off");
       mainTitleElement.classList.toggle("off");
+
+      startButtonElement.disabled = false;
     }
   }, 6000);
 });
@@ -208,6 +227,9 @@ overviewElement.addEventListener("click", (event) => {
   overviewElement.classList.toggle("off");
   guessButtonsElement.classList.toggle("off");
   mainTitleElement.classList.toggle("off");
+
+  startButtonElement.disabled = false;
+
 });
 
 getDeck();
